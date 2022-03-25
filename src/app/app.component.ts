@@ -1,6 +1,7 @@
 import { Component } from '@angular/core'; //importa la classe Component da angular core
 
 //un componente contiene dei metadati (selector, template, style), proprietà e metodi (che stanno all'interno della classe)
+//NB un componente è un caso particolare di @Directive
 
 //Component decorator
 @Component({

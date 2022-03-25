@@ -4,6 +4,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar'; 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatListModule } from '@angular/material';
+import { MatGridListModule } from '@angular/material';
+import { MatCardModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material';
 
 import 'hammerjs';
 
@@ -21,7 +24,10 @@ import { MenuComponent } from './menu/menu.component'; //è aggiunto autocamicam
     BrowserAnimationsModule,
     MatToolbarModule,
     FlexLayoutModule,
-    MatListModule
+    MatListModule,
+    MatGridListModule,
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [], //specifica tutti i services che servono per questo modulo
   bootstrap: [AppComponent]
