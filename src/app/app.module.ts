@@ -11,13 +11,15 @@ import { MatButtonModule } from '@angular/material';
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
-import { MenuComponent } from './menu/menu.component'; //è aggiunto autocamicamente ogni volta che generiamo un componente da Angular CLI
+import { MenuComponent } from './menu/menu.component';
+import { DishdetailComponent } from './dishdetail/dishdetail.component'; //è aggiunto autocamicamente ogni volta che generiamo un componente da Angular CLI
 
 //NgModule decorator
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent //dichiara che questo componente appartiene a questo modulo
+    MenuComponent,
+    DishdetailComponent //dichiara che questo componente appartiene a questo modulo
   ],
   imports: [
     BrowserModule, //dichiara quali import sono necessari per questo modulo
