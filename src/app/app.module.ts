@@ -14,6 +14,8 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { DishdetailComponent } from './dishdetail/dishdetail.component'; //è aggiunto autocamicamente ogni volta che generiamo un componente da Angular CLI
 
+import { DishService } from './services/dish.service';
+
 //NgModule decorator
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { DishdetailComponent } from './dishdetail/dishdetail.component'; //è ag
     MatCardModule,
     MatButtonModule
   ],
-  providers: [], //specifica tutti i services che servono per questo modulo
+  providers: [
+    DishService
+  ], //specifica tutti i services che servono per questo modulo
   bootstrap: [AppComponent]
 })
 export class AppModule { }
