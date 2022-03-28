@@ -15,13 +15,17 @@ import { MenuComponent } from './menu/menu.component';
 import { DishdetailComponent } from './dishdetail/dishdetail.component'; //è aggiunto autocamicamente ogni volta che generiamo un componente da Angular CLI
 
 import { DishService } from './services/dish.service';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 //NgModule decorator
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    DishdetailComponent //dichiara che questo componente appartiene a questo modulo
+    DishdetailComponent,
+    HeaderComponent,
+    FooterComponent //dichiara che questo componente appartiene a questo modulo
   ],
   imports: [
     BrowserModule, //dichiara quali import sono necessari per questo modulo
