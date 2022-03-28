@@ -23,6 +23,9 @@ import { ContactComponent } from './contact/contact.component';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { PromotionService } from './services/promotion.service';
+import { LeaderService } from './services/leader.service';
+import { LoginComponent } from './login/login.component';
+import { MatDialogModule } from '@angular/material';
 
 //NgModule decorator
 @NgModule({
@@ -34,7 +37,8 @@ import { PromotionService } from './services/promotion.service';
     FooterComponent,
     HomeComponent,
     AboutComponent,
-    ContactComponent //dichiara che questo componente appartiene a questo modulo
+    ContactComponent,
+    LoginComponent //dichiara che questo componente appartiene a questo modulo
   ],
   imports: [
     BrowserModule, //dichiara quali import sono necessari per questo modulo
@@ -45,12 +49,17 @@ import { PromotionService } from './services/promotion.service';
     MatGridListModule,
     MatCardModule,
     MatButtonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatDialogModule
   ],
   providers: [
     DishService,
-    PromotionService
+    PromotionService,
+    LeaderService
   ], //specifica tutti i services che servono per questo modulo
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    LoginComponent //lo aggiungo anche qua per usarlo come dialog component
+  ]
 })
 export class AppModule { }
