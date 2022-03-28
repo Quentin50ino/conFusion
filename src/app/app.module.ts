@@ -17,6 +17,11 @@ import { DishdetailComponent } from './dishdetail/dishdetail.component'; //è ag
 import { DishService } from './services/dish.service';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 //NgModule decorator
 @NgModule({
@@ -25,7 +30,10 @@ import { FooterComponent } from './footer/footer.component';
     MenuComponent,
     DishdetailComponent,
     HeaderComponent,
-    FooterComponent //dichiara che questo componente appartiene a questo modulo
+    FooterComponent,
+    HomeComponent,
+    AboutComponent,
+    ContactComponent //dichiara che questo componente appartiene a questo modulo
   ],
   imports: [
     BrowserModule, //dichiara quali import sono necessari per questo modulo
@@ -35,7 +43,8 @@ import { FooterComponent } from './footer/footer.component';
     MatListModule,
     MatGridListModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    AppRoutingModule
   ],
   providers: [
     DishService
