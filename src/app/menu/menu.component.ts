@@ -16,7 +16,8 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     //metodo eseguito ogni volta che il componente viene creato
-    this.dishes = this.dishService.getDishes();
+    //this.dishes = this.dishService.getDishes();    versione quando getDishes() no restituiva una promise
+    this.dishService.getDishes().then((dishes) => this.dishes = dishes); //versione con la Promise
   }
 
   //metodo che viene chiamato al click sulla card (chiamato nel menu.component.html)

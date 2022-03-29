@@ -10,15 +10,16 @@ export class DishService {
 
   constructor() { }
 
-  getDishes(): Dish[] {
-    return DISHES;
+  getDishes(): Promise<Dish[]> {
+    return Promise.resolve(DISHES); //modo per risolvere la promise immediatamente
+    //in questo caso va bene perchè non stiamo contattando nessun server per davvero
   }
 
-  getDish(id: string): Dish {
-    return DISHES.filter((dish) => dish.id == id)[0];
+  getDish(id: string):  Promise<Dish> {
+    return Promise.resolve(DISHES.filter((dish) => dish.id == id)[0]);
   }
 
-  getFeatureDish(): Dish {
-    return DISHES.filter((dish) => dish.featured)[0];
+  getFeatureDish():  Promise<Dish> {
+    return Promise.resolve(DISHES.filter((dish) => dish.featured)[0]);
   }
 }
