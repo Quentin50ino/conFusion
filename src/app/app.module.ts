@@ -34,6 +34,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material';
 import { MatSlideToggleModule } from '@angular/material';
+import { MatProgressSpinnerModule } from '@angular/material';
 
 //NgModule decorator
 @NgModule({
@@ -65,7 +66,8 @@ import { MatSlideToggleModule } from '@angular/material';
     MatCheckboxModule,
     ReactiveFormsModule,
     MatSelectModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     DishService,

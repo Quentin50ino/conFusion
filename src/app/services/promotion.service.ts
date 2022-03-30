@@ -10,14 +10,32 @@ export class PromotionService {
   constructor() { }
 
   getPromotions(): Promise<Promotion[]> {
-    return Promise.resolve(PROMOTIONS);
+    //return Promise.resolve(PROMOTIONS);
+    return new Promise(resolve => {
+      //Simulate serverlatency with 2 second delay
+      setTimeout(() => {
+        resolve(PROMOTIONS)
+      }, 2000)
+    })
   }
 
   getDish(id: string): Promise<Promotion> {
-    return Promise.resolve(PROMOTIONS.filter((promo) => {promo.id === id})[0]);
+    //return Promise.resolve(PROMOTIONS.filter((promo) => {promo.id === id})[0]);
+    return new Promise(resolve => {
+      //Simulate serverlatency with 2 second delay
+      setTimeout(() => {
+        resolve(PROMOTIONS.filter((promo) => {promo.id === id})[0])
+      }, 2000)
+    })
   }
 
   getFeatureDish(): Promise<Promotion> {
-    return Promise.resolve(PROMOTIONS.filter((promo) => promo.featured)[0]);
+    //return Promise.resolve(PROMOTIONS.filter((promo) => promo.featured)[0]);
+    return new Promise(resolve => {
+      //Simulate serverlatency with 2 second delay
+      setTimeout(() => {
+        resolve(PROMOTIONS.filter((promo) => promo.featured)[0])
+      }, 2000)
+    })
   }
 }
