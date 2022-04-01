@@ -13,7 +13,7 @@
           <h3>{{ dish.name | uppercase }}</h3>
         </mat-card-title>
       </mat-card-header>
-      <img mat-card-image src={{dish.image}} alt={{dish.name}}>
+      <img mat-card-image src={{BaseURL+dish.image}} alt={{dish.name}}>
       <mat-card-content>
         <p>{{ dish.description }}</p>
       </mat-card-content>
@@ -31,8 +31,12 @@
       </mat-card-actions>
     </mat-card>
   </div>
-  <div fxFlex [hidden]="dish">
-    <mat-spinner><h4>Loading . . . Pleade Wait</h4></mat-spinner>
+  <div fxFlex [hidden]="dish || errMess">
+    <mat-spinner><h4>Loading . . . Please Wait</h4></mat-spinner>
+  </div>
+  <div fxFlex *ngIf="errMess">
+    <h2>Error</h2>
+    <h4>{{errMess}}</h4>
   </div>
 
   <div fxFlex="40" *ngIf="dish">
@@ -46,6 +50,39 @@
         <p matLine> -- {{c.author}} {{c.date | date:'mediumDate'}}</p>
       </mat-list-item>
     </mat-list>
-  </div>
+  
+  
+  <mat-list *ngIf="commentForm.valid" [ngStyle]="{'marginTop' : '80px'}">
+    <mat-list-item>
+      <p matLine>{{commentForm.value.comment}}</p>
+      <p matLine>{{commentForm.value.rating}} stars</p>
+      <p matLine> {{commentForm.value.author}}</p>
+    </mat-list-item>
+  </mat-list>
+  
+
+
+  <form novalidate [formGroup]="commentForm" #cform="ngForm" (ngSubmit)="onSubmit()">
+    <p>
+      <mat-form-field class="full-width">
+        <input matInput formControlName="author" placeholder="Name" type="text" required/>
+      </mat-form-field>
+      <mat-error *ngIf="formErrors.author">
+        {{ formErrors.author }}
+      </mat-error>
+    </p>
+    <p>
+      <mat-slider matInput formControlName="rating" min="1" max="5" step="1" thumbLabel tickInterval="1"></mat-slider>
+    </p>
+    <p>
+      <mat-form-field class="full-width">
+        <textarea matInput formControlName="comment" placeholder="Your Comment" type="text" rows="6" required></textarea>
+      </mat-form-field>
+      <mat-error *ngIf="formErrors.comment">
+        {{ formErrors.comment }}
+      </mat-error>
+    </p>
+    <button [disabled]="commentForm.invalid" type="submit" mat-button class="background-primary text-floral-white">Submit</button>
+  </form>
 
 </div>

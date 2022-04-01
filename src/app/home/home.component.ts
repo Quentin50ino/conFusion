@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Dish } from '../shared/dish';
 import { DishService } from '../services/dish.service';
 import { Promotion } from '../shared/promotion';
@@ -16,19 +16,23 @@ export class HomeComponent implements OnInit {
   dish: Dish;
   promotion: Promotion;
   leader: Leader;
+  dishErrMess: string;
+  promoErrMess: string;
+  leaderErrMess: string;
 
   constructor(private dishService: DishService,
     private promotionService: PromotionService,
-    private leaderService: LeaderService) { }
+    private leaderService: LeaderService,
+    @Inject ('BaseURL') private BaseURL) { }
 
   ngOnInit() {
     //this.dish = this.dishService.getFeatureDish();
     //this.dishService.getFeatureDish().then((dish) => this.dish = dish);
-    this.dishService.getFeatureDish().subscribe((dish) => this.dish = dish);
+    this.dishService.getFeatureDish().subscribe((dish) => this.dish = dish, errMess => this.dishErrMess = <any>errMess);
     //this.promotion = this.promotionService.getFeatureDish();
-    this.promotionService.getFeatureDish().subscribe((promo) => this.promotion = promo);
+    this.promotionService.getFeatureDish().subscribe((promo) => this.promotion = promo, errMess => this.promoErrMess = <any>errMess);
     //this.leader = this.leaderService.getFeatureLeader();
-    this.leaderService.getFeatureLeader().subscribe((leader) => this.leader = leader);
+    this.leaderService.getFeatureLeader().subscribe((leader) => this.leader = leader, errMess => this.leaderErrMess = <any>errMess);
   }
 
 }

@@ -35,6 +35,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material';
 import { MatSlideToggleModule } from '@angular/material';
 import { MatProgressSpinnerModule } from '@angular/material';
+import { MatSliderModule } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
+import { baseURL } from './shared/baseurl';
+import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
 
 //NgModule decorator
 @NgModule({
@@ -67,12 +71,16 @@ import { MatProgressSpinnerModule } from '@angular/material';
     ReactiveFormsModule,
     MatSelectModule,
     MatSlideToggleModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSliderModule,
+    HttpClientModule
   ],
   providers: [
     DishService,
     PromotionService,
-    LeaderService
+    LeaderService,
+    {provide : 'BaseURL', useValue : baseURL},
+    ProcessHTTPMsgService
   ], //specifica tutti i services che servono per questo modulo
   bootstrap: [AppComponent],
   entryComponents: [
