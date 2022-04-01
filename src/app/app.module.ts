@@ -39,6 +39,7 @@ import { MatSliderModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { baseURL } from './shared/baseurl';
 import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
+import { HighlightDirective } from './directives/highlight.directive';
 
 //NgModule decorator
 @NgModule({
@@ -51,7 +52,8 @@ import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
     HomeComponent,
     AboutComponent,
     ContactComponent,
-    LoginComponent //dichiara che questo componente appartiene a questo modulo
+    LoginComponent,
+    HighlightDirective //dichiara che questo componente appartiene a questo modulo
   ],
   imports: [
     BrowserModule, //dichiara quali import sono necessari per questo modulo
